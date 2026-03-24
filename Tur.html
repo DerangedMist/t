@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="tk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkmenistan Syýahat Agentligi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #10b981 100%);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .turkmen-pattern {
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(59, 130, 246, 0.05) 35px, rgba(59, 130, 246, 0.05) 70px);
+        }
+
+        .image-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-overlay::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .image-overlay>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .destination-img {
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card-hover:hover .destination-img {
+            transform: scale(1.1);
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .flag-colors {
+            background: linear-gradient(to right, #1e7b3d 0%, #1e7b3d 33%, #ffffff 33%, #ffffff 66%, #ce1126 66%, #ce1126 100%);
+        }
+
+        .lang-btn {
+            color: #374151;
+        }
+
+        .lang-btn {
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: scale(1.05);
+}
+.icon-box {
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.icon-box:hover {
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    transform: scale(1.1);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.desc {
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+}
+
+.social-btn {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    transform: scale(1.15);
+}
+.nav-link {
+    position: relative;
+    font-weight: 600;
+    color: #374151;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    transition: 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+    </style>
+</head>
+
+<body class="scroll-smooth pt-16">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-lg shadow-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+            <div class="flex items-center justify-between">
+    
+                <!-- ЛОГО -->
+                <div class="flex items-center space-x-3">
+                    <img src="IMG_20260321_1306.png"
+                        class="w-10 h-10 rounded-full object-cover shadow-md" alt="">
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold gradient-text">Gözel Syýahat</h1>
+                        <p class="text-[10px] text-gray-500">Türkmenistan Syýahat</p>
+                    </div>
+                </div>
+    
+                <!-- DESKTOP MENU -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#baş" data-i18n="nav_home"
+                        class="nav-link">Baş sahypa</a>
+                    <a href="#biz-barada" data-i18n="nav_about"
+                        class="nav-link">Biz barada</a>
+                    <a href="#ýerler" data-i18n="nav_places"
+                        class="nav-link">Ýerler</a>
+                    <a href="#hyzmatlar" data-i18n="nav_services"
+                        class="nav-link">Hyzmatlar</a>
+                    <a href="#habarlaşmak" data-i18n="nav_contact"
+                        class="nav-link">Habarlaşmak</a>
+                </div>
+    
+                <!-- RIGHT SIDE -->
+                <div class="flex items-center space-x-3">
+    
+                    <!-- LANG -->
+                    <div class="hidden sm:flex items-center bg-gray-100 rounded-full p-1">
+                        <button class="lang-btn active" data-lang="tk">TK</button>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="tr">TR</button>
+                    </div>
+    
+                    <!-- BURGER -->
+                    <button id="openMenu" class="md:hidden text-gray-700 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="mobileMenu"
+    class="fixed top-0 left-0 w-full h-full bg-white z-40 transform -translate-x-full transition duration-300 md:hidden">
+
+    <div class="p-6 pt-20">
+
+        <button id="closeMenu" class="text-2xl mb-10">
+            ✖
+        </button>
+
+        <!-- LANG MOBILE -->
+        <div class="flex justify-center mb-10 bg-gray-100 rounded-full p-1 w-fit mx-auto">
+            <button class="lang-btn active" data-lang="tk">TK</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="tr">TR</button>
+        </div>
+
+        <!-- LINKS -->
+        <div class="flex flex-col space-y-6 text-xl font-semibold text-center">
+            <a href="#baş" data-i18n="nav_home">Baş sahypa</a>
+            <a href="#biz-barada" data-i18n="nav_about">Biz barada</a>
+            <a href="#ýerler" data-i18n="nav_places">Ýerler</a>
+            <a href="#hyzmatlar" data-i18n="nav_services">Hyzmatlar</a>
+            <a href="#habarlaşmak" data-i18n="nav_contact">Habarlaşmak</a>
+        </div>
+
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <section id="baş"
+        class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-green-300 rounded-full blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-float mb-8">
+                <div class="w-32 h-32 mx-auto bg-white rounded-full flex items-center justify-center shadow-2xl">
+                    <i class="fas fa-plane-departure text-6xl text-blue-600"></i>
+                </div>
+            </div>
+            <h1 data-i18n="hero_title"
+                class="text-5xl md:text-7xl font-bold text-white mb-6 text-shadow animate-slide-in">
+                Türkmenistana Hoş Geldiňiz
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto text-shadow" data-i18n="hero_subtitle">
+                Gadymy taryh, owadan tebigy gözellikler we mähirli myhmansöýerlik bilen dolu ajaýyp ýurda syýahat ediň
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a data-i18n="hero_btn_explore" href="#ýerler"
+                    class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-xl hover:shadow-2xl transform hover:scale-105">
+                    <i class="fas fa-map-marked-alt mr-2"></i>
+                    Ýerleri Öwren
+                </a>
+                <a data-i18n="hero_btn_contact" href="#habarlaşmak"
+                    class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition shadow-xl transform hover:scale-105">
+                    <i class="fas fa-phone mr-2"></i>
+                    Habarlaş
+                </a>
+            </div>
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 text-white">
+                    <div class="text-4xl font-bold mb-2">1000+</div>
+                    <div data-i18n="hero_clients" class="text-sm">Şat Müşderiler</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 text-white">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div data-i18n="hero_places" class="text-sm">Syýahat Ýerleri</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 text-white">
+                    <div class="text-4xl font-bold mb-2">15</div>
+                    <div data-i18n="hero_experience" class="text-sm">Ýyllyk Tejribe</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 text-white">
+                    <div class="text-4xl font-bold mb-2">24/7</div>
+                    <div data-i18n="hero_support" class="text-sm">Goldaw</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="biz-barada" class="py-20 bg-gray-50 turkmen-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="about_title" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    <span class="gradient-text">Türkmenistan</span> Barada
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="Gemini_Generated_Image_neepvneepvneepv.png"
+                        alt="Türkmenistan" class="w-full h-96 object-cover">
+                </div>
+                <div>
+                    <h3 data-i18n="about_subtitle" class="text-3xl font-bold text-gray-800 mb-6">Gadymy Taryh we Häzirki
+                        Zaman</h3>
+                    <p data-i18n="" class="text-gray-700 text-lg mb-4 leading-relaxed">
+                        Türkmenistan Merkezi Aziýada ýerleşýän ajaýyp döwletdir. Gadymy Beýik Ýüpek Ýolunyň üstünde
+                        ýerleşýän bu ýurt baý taryhy we medeni mirasa eýedir.
+                    </p>
+                    <p data-i18n="" class="text-gray-700 text-lg mb-6 leading-relaxed">
+                        Türkmenistan dünýäde iň gadymy siwilizasiýalaryň biridigi bolan Margiana we Parthiýa
+                        patyşalyklaryna öý eýeçiligini edipdir. Aşgabat, Merw, we Köneürgenç ýaly şäherler dünýäniň iň
+                        gyzykly taryhy ýerleriniň hataryna girýär.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-landmark text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div data-i18n="about_history" class="font-bold text-gray-800">Taryhy Ýerler</div>
+                                <div data-i18n="about_nature" class="text-sm text-gray-600">UNESCO Mirasy</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-mountain text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div data-i18n="" class="font-bold text-gray-800">Tebigy Gözellik</div>
+                                <div data-i18n="" class="text-sm text-gray-600">Sähra we Daglar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-star text-white text-2xl"></i>
+                    </div>
+                    <h4 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Myhmansöýerlik</h4>
+                    <p data-i18n="" class="text-gray-600 leading-relaxed">
+                        Türkmen halkynyň myhmansöýerligi dünýä belli. Her myhmana öýdäki ýaly mähirli we dostlukly
+                        çemeleşilýär.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h4 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Medeniýet</h4>
+                    <p data-i18n="" class="text-gray-600 leading-relaxed">
+                        Baý medeni däp-dessurlar, döredijilik sungaty we gadymy senetler halkyň durmuşynyň aýrylmaz
+                        bölegidir.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-utensils text-white text-2xl"></i>
+                    </div>
+                    <h4 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Milli Aşlar</h4>
+                    <p data-i18n="" class="text-gray-600 leading-relaxed">
+                        Türkmen tagamlary özboluşly tagamy we däpleri bilen dünýäde tanalýar. Palaw, şaşlyk we çörek iň
+                        meşhur naharlarymyzdyr.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="ýerler" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Meşhur <span class="gradient-text">Syýahat Ýerleri</span>
+                </h2>
+                <p data-i18n="" class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Türkmenistanyň iň gözel we gyzykly ýerlerini açyň
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="280524-034.jpg"
+                            alt="Aşgabat" class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-2xl font-bold text-gray-800">Aşgabat</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            Türkmenistanyň paýtagty, ak mermerden gurlan şäher. Häzirki zaman binagärlik sungatynyň
+                            ajaýyp nusgasy.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-i18n="" class="text-sm">Paýtagt</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="IMG-20231203-WA0011.jpg" alt="Derweze"
+                            class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 data-i18n="" class="text-2xl font-bold text-gray-800">Derweze</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            "Dowzagyň Gapysy" diýlip atlandyrylýan ajaýyp tebigy hadysa. Gije-gündiz ýanýan gaz
+                            krateridir.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div data-i18n="" class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-fire"></i>
+                                <span class="text-sm">Gaz Krateri</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="torebeg-hanym-mawzoleyi-koneurgench.jpg"
+                            alt="Köneürgenç" class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 data-i18n="" class="text-2xl font-bold text-gray-800">Köneürgenç</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            UNESCO-nyň Bütindünýä mirasy. Gadymy Horezm patyşalygymyzyň yzlary, taryhy binalar we
+                            minorlar.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div data-i18n="" class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-mosque"></i>
+                                <span class="text-sm">UNESCO Mirasy</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="View_from_the_city_walls_Khiva_4934484894.jpg"
+                            alt="Merw" class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 data-i18n="" class="text-2xl font-bold text-gray-800">Merw</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            Gadymy Beýik Ýüpek Ýolunyň üstündäki iň uly we mährum şäherleriniň biri. Baý taryhy
+                            ýadygärlikler.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div data-i18n="" class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-monument"></i>
+                                <span class="text-sm">Taryhy Şäher</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="unnamed_1.jpg" alt="Köýtendag"
+                            class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 data-i18n="" class="text-2xl font-bold text-gray-800">Köýtendag</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            Dagly sebit, tebigy goraghanalar we özboluşly flora-fauna. Tebigy gözellik bilen dolu ýer.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div data-i18n="" class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-mountain"></i>
+                                <span class="text-sm">Dagly Sebit</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover">
+                    <div class="overflow-hidden">
+                        <img src="01-400x300.jpg"
+                            alt="Awaza" class="destination-img w-full">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 data-i18n="" class="text-2xl font-bold text-gray-800">Awaza</h3>
+                            <div class="flex items-center text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p data-i18n="" class="text-gray-600 mb-4">
+                            Hazar deňziniň kenaryndaky häzirki zaman dynç alyş zolagy. Pläž we lukman sebitleri.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div data-i18n="" class="flex items-center space-x-2 text-gray-500">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span class="text-sm">Dynç Alyş</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hyzmatlar" class="py-20 bg-gradient-to-br from-blue-50 to-green-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Biziň <span class="gradient-text">Hyzmatlarymyz</span>
+                </h2>
+                <p data-i18n="" class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Siziň ajaýyp syýahatyňyzy guramak üçin ähli zerur hyzmatlar
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover text-center">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition">
+                        <i class="fas fa-hotel text-white text-3xl"></i>
+                    </div>
+                    <h3 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Myhmanhana Bronlaş</h3>
+                    <p data-i18n="" class="text-gray-600">
+                        Iň gowy myhmanhanalardan saýlap, rahat we ykjam myhmanhanalary bronlaň.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover text-center">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition">
+                        <i class="fas fa-bus text-white text-3xl"></i>
+                    </div>
+                    <h3 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Transport Hyzmatlary</h3>
+                    <p data-i18n="" class="text-gray-600">
+                        Howa menzilinden myhmanhana çenli we ähli syýahat ugurlary üçin amatly transport.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover text-center">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition">
+                        <i class="fas fa-user-tie text-white text-3xl"></i>
+                    </div>
+                    <h3 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Ekskursiýa Gollanmasy</h3>
+                    <p data-i18n="" class="text-gray-600">
+                        Tejribeli we bilimli gollanmalar bilen ähli taryhy we gözel ýerleri gezýäň.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover text-center">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center mx-auto mb-6 transform hover:rotate-12 transition">
+                        <i class="fas fa-passport text-white text-3xl"></i>
+                    </div>
+                    <h3 data-i18n="" class="text-2xl font-bold text-gray-800 mb-4">Wiza Goldawy</h3>
+                    <p data-i18n="" class="text-gray-600">
+                        Wiza resmileşdirmek we ähli zerur resminamalary taýýarlamakda kömek edýäris.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-12 flex flex-col justify-center">
+                        <h3 data-i18n="" class="text-3xl font-bold text-gray-800 mb-6">Ýörite Teklipimiz</h3>
+                        <p data-i18n="" class="text-gray-600 text-lg mb-6 leading-relaxed">
+                            Häzir Türkmenistana syýahat turlaryny arzanladyş bilen almagy başlaň! 7 günlük tur
+                            paketlerimize 20% arzanladyş alýarsyňyz.
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li data-i18n="" class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                <span class="text-gray-700">Myhmanhana we nahar öz içinde</span>
+                            </li>
+                            <li data-i18n="" class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                <span class="text-gray-700">Professional gollanma hyzmaty</span>
+                            </li>
+                            <li data-i18n="" class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                <span class="text-gray-700">Transport we muzeý petekleri</span>
+                            </li>
+                            <li data-i18n="" class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                                <span class="text-gray-700">24/7 goldaw hyzmaty</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="h-full min-h-[400px]">
+                        <img src="photo-1488646953014-85cb44e25828.jpg"
+                            alt="Ýörite Teklip" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            
+                <div class="max-w-6xl mx-auto pt-20 px-6">
+            
+                    <!-- TITLE -->
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">
+                            5 Gün / 4 Gije Syýahat
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto">
+                            Aşgabat we Türkmenistanyň iň ajaýyp ýerleri boýunça aýratyn syýahat programmasy
+                        </p>
+                    </div>
+            
+                    <!-- GRID -->
+                    <div class="grid md:grid-cols-2 gap-10">
+            
+                        <!-- DAY 1 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                            <img src="280524-034.jpg" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3">1-nji gün – Aşgabat</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Aeroportda garşy almak, myhmanhana ýerleşmek. Garaşsyzlyk meýdançasy,
+                                    Bitaraplyk binasy we şäher gezelenji. Agşam söwda merkezi.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <!-- DAY 2 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                            <img src="2kogouCZUJeRjBdD7qfRCIaKlzGzk9Mz6SigZEg59f1CXklpCMXgVOC89bxc.jpg" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3">2-nji gün – Köne Nusaý</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Parfiýa döwri gadymy şäheri Nusaý. Soňra muzeý gezelenji
+                                    we Berkarar söwda merkezinde agşamlyk.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <!-- DAY 3 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                            <img src="https://source.unsplash.com/600x400/?horse" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3">3-nji gün – Ahalteke atlary</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Meşhur Ahalteke atçylyk fermasy. Dünýä belli atlar bilen tanyşlyk
+                                    we şäher boýunça gezelenç.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <!-- DAY 4 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+                            <img src="https://source.unsplash.com/600x400/?desert,fire" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3">4-nji gün – Derweze (Hell Gates)</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Garagum çölüne syýahat. Gaz krateri, agşam BBQ we çadyrda
+                                    ýa-da türkmen öýünde gijä galmak.
+                                </p>
+                            </div>
+                        </div>
+            
+                        <!-- DAY 5 -->
+                        <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition md:col-span-2">
+                            <img src="https://source.unsplash.com/1200x400/?city,travel" class="w-full h-52 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3">5-nji gün – Gaýdyp uçuş</h3>
+                                <p class="text-gray-600 text-sm">
+                                    Söwda merkezi, soňra aeroporta ugradylyp, uçuş.
+                                </p>
+                            </div>
+                        </div>
+            
+                    </div>
+            
+                    <!-- PRICE -->
+                    <div class="mt-16 bg-gradient-to-r from-blue-600 to-green-500 text-white rounded-2xl p-8 text-center shadow-lg">
+                        <h3 class="text-3xl font-bold mb-4">Bahasy: 870$</h3>
+                        <p class="text-white/90 mb-4">
+                            4 gijelik myhmanhana + 1 gije çadyrda ýaşamak
+                        </p>
+                        <button class="mt-4 px-8 py-3 bg-white text-blue-600 font-bold rounded-full hover:scale-105 transition">
+                            Bron etmek
+                        </button>
+                    </div>
+            
+                </div>
+            
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Müşderilerimiziň <span class="gradient-text">Pikirler</span>
+                </h2>
+                <p data-i18n="" class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Türkmenistanda biziň bilen syýahat eden müşderilerimiz näme diýýär?
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=33" alt="Müşderi" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 data-i18n="" class="font-bold text-gray-800 text-lg">Ahmed Magtymow</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-i18n="" class="text-gray-600 italic leading-relaxed">
+                        "Ajaýyp tejribe! Ähli zat gaty gowy gurnalypdy. Gollanmamyz örän bilimli we mähirli adamdy.
+                        Türkmenistanyň taryhy ýerlerini görmek meniň üçin ýatdan çykmajak tejribe boldy."
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=45" alt="Müşderi" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 data-i18n="" class="font-bold text-gray-800 text-lg">Jennet Gurbanova</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-i18n="" class="text-gray-600 italic leading-relaxed">
+                        "Professional hyzmat we ajaýyp myhmansöýerlik. Derwezäni görmek haýran galdyryjy tejribe! Ähli
+                        zatlar wagtynda we gowy gurnaldy. Uly minnetdarlyk bildirýärin!"
+                    </p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Müşderi" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 data-i18n="" class="font-bold text-gray-800 text-lg">Döwlet Annaýew</h4>
+                            <div class="flex text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-i18n="" class="text-gray-600 italic leading-relaxed">
+                        "Maşgalama bilen ajaýyp syýahat. Çagalar we ulular üçin gyzykly maksatnamalar taýýarlanypdyr.
+                        Awaza pläžinde dynç almak aýratyn lezzetlidi. Hemmesine maslahat berýärin!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 data-i18n="" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Surat <span class="gradient-text">Galereýa</span>
+                </h2>
+                <p data-i18n="" class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Türkmenistanyň gözelligini suratlar arkaly synlaň
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="LgZ2E78R9Bz4U317Z8QhrUkNPJtaGR-267x206.jpg"
+                        alt="Gallery 1" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="nochnoj-ashhabad.jpg"
+                        alt="Gallery 2" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="turkmenistan-yangikal-460x345.webp"
+                        alt="Gallery 3" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="turkmenistan-darvaza-1-1536x1152.webp"
+                        alt="Gallery 4" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="turkmenistan.-foto-s-puteshestviya-20-480x360.webp"
+                        alt="Gallery 5" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="Soltan-Sanjar-mausoleum_15_11zon-card.jpg"
+                        alt="Gallery 6" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="20250518_185616_edited_valencia.jpg"
+                        alt="Gallery 7" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-2xl shadow-lg card-hover">
+                    <img src="4-day-turkmenistan-group-tour-from-bukhara.jpg"
+                        alt="Gallery 8" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="habarlaşmak"
+    class="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-green-600 text-white">
+
+    <div class="container mx-auto px-4 sm:px-6">
+
+        <!-- Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-shadow">
+                Biziň Bilen Habarlaşyň
+            </h2>
+            <p class="text-lg sm:text-xl max-w-2xl mx-auto text-white/90">
+                Soraglaryňyz bar bolsa ýa-da syýahatyňyzy guramak isleseňiz, bize ýüz tutuň
+            </p>
+            <div class="w-24 h-1 bg-white mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Center Block -->
+        <div class="flex justify-center">
+            <div
+                class="w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20">
+
+                <h3 class="text-xl sm:text-2xl text-center font-bold mb-8">
+                    Habarlaşmak Maglumatlary
+                </h3>
+
+                <div class="space-y-8">
+
+                    <!-- Row 1 -->
+                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8">
+
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="icon-box">
+                                <a href="https://maps.app.goo.gl/ZTLjKmKWucJVgghR8"><i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="title">Salgy</h4>
+                                <p class="desc">Aşgabat şäheri, Kendir obýezdnoý.</p>
+                            </div>
+                        </div></a>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="icon-box">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="title">Telefon</h4>
+                                <a href="tel:+993 65 557427"><p class="desc">+993 65 557427</p></a>
+                                <a href="tel:+993 71 026664"><p class="desc">+993 71 026664</p></a>
+                                <a href="tel:+993 71 026663"><p class="desc">+993 71 026663</p></a>
+                                <a href="tel:+993 65 432109"><p class="desc">+993 65 432109</p></a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="flex flex-col sm:flex-row gap-6 sm:gap-8">
+
+                        <!-- Email -->
+                       <div class="flex items-start space-x-4 flex-1">
+                            <div class="icon-box">
+                                <a href="mailto:info.gozeltravel@gmail.com" target="_blank"><i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="title">Email</h4>
+                                <p class="desc">info.gozeltravel@gmail.com</p>
+                            </div></a>
+                        </div>
+
+                        <!-- Work Time -->
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="icon-box">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="title">Iş Wagty</h4>
+                                <p class="desc">Duşenbe - Juma: 09:00 - 18:00</p>
+                                <p class="desc">Ýekşenbe: Işlänok</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Social -->
+                    <div class="pt-6 border-t border-white/20 text-center">
+                        <h3 class="text-xl sm:text-2xl font-bold mb-6">
+                            Sosial Mediýa
+                        </h3>
+
+                        <div class="flex justify-center gap-4 flex-wrap">
+                            <a href="" class="social-btn"><i class="fab fa-telegram"></i></a>
+                            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/gozel_travel?igsh=MXN5ajBkNWllaWVudg==" class="social-btn"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@gozel_syyahat?_r=1&_t=ZS-94uDRjCdZkz" class="social-btn"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-600 to-green-500 rounded-full flex items-center justify-center">
+                            <img class="w-12 h-12 bg-gradient-to-br from-blue-600 to-green-500 rounded-full flex items-center justify-center"
+                                src="IMG_20260321_1306.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Gözel Syýahat</h3>
+                            <p data-i18n="" class="text-xs text-gray-400">Syýahat Agentligi</p>
+                        </div>
+                    </div>
+                    <p data-i18n="" class="text-gray-400 text-sm">
+                        Türkmenistanyň iň gowy syýahat agentligi. Siziň ajaýyp syýahatyňyz üçin ähli hyzmatlary
+                        hödürleýäris.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 data-i18n="" class="text-lg font-bold mb-4">Çalt Baglanyşyklar</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a data-i18n="" href="#baş" class="hover:text-white transition">Baş sahypa</a></li>
+                        <li><a data-i18n="" href="#biz-barada" class="hover:text-white transition">Biz barada</a></li>
+                        <li><a data-i18n="" href="#ýerler" class="hover:text-white transition">Ýerler</a></li>
+                        <li><a data-i18n="" href="#hyzmatlar" class="hover:text-white transition">Hyzmatlar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Syýahat Ýerleri</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a data-i18n="" href="#" class="hover:text-white transition">Aşgabat</a></li>
+                        <li><a data-i18n="" href="#" class="hover:text-white transition">Derweze</a></li>
+                        <li><a data-i18n="" href="#" class="hover:text-white transition">Köneürgenç</a></li>
+                        <li><a data-i18n="" href="#" class="hover:text-white transition">Awaza</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2024 Gözel Syýahat. Ähli hukuklar goralan.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Gizlinlik Syýasaty</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Şertler we Düzgünler</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-r from-blue-600 to-green-500 text-white rounded-full shadow-lg hover:shadow-2xl transition transform hover:scale-110 opacity-0 pointer-events-none z-50">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+const openMenu = document.getElementById('openMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+// открыть меню
+openMenu.addEventListener('click', () => {
+    mobileMenu.classList.remove('-translate-x-full');
+});
+
+// закрыть меню
+closeMenu.addEventListener('click', () => {
+    mobileMenu.classList.add('-translate-x-full');
+});
+
+// закрытие при клике на ссылку
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+    });
+});
+        const translations = {
+            tk: {
+                // NAV
+                nav_home: "Baş sahypa",
+                nav_about: "Biz barada",
+                nav_places: "Ýerler",
+                nav_services: "Hyzmatlar",
+                nav_contact: "Habarlaşmak",
+
+                // HERO
+                hero_title: "Türkmenistana Hoş Geldiňiz",
+                hero_subtitle: "Gadymy taryh, owadan tebigy gözellikler we mähirli myhmansöýerlik bilen dolu ajaýyp ýurda syýahat ediň",
+                hero_btn_explore: "Ýerleri Öwren",
+                hero_btn_contact: "Habarlaş",
+                hero_clients: "Şat Müşderiler",
+                hero_places: "Syýahat Ýerleri",
+                hero_experience: "Ýyllyk Tejribe",
+                hero_support: "Goldaw",
+
+                // ABOUT
+                about_title: "Türkmenistan Barada",
+                about_subtitle: "Gadymy Taryh we Häzirki Zaman",
+                about_text1: "Türkmenistan Merkezi Aziýada ýerleşýän ajaýyp döwletdir.",
+                about_text2: "Baý taryhy we medeni mirasa eýedir.",
+                about_history: "Taryhy Ýerler",
+                about_nature: "Tebigy Gözellik",
+
+                // FEATURES
+                feature_hospitality: "Myhmansöýerlik",
+                feature_culture: "Medeniýet",
+                feature_food: "Milli Aşlar",
+
+                // DESTINATIONS
+                destinations_title: "Meşhur Syýahat Ýerleri",
+                destinations_subtitle: "Türkmenistanyň iň gözel ýerleri",
+
+                ashgabat: "Aşgabat",
+                darvaza: "Derweze",
+                kunya: "Köneürgenç",
+                merv: "Merw",
+                koytendag: "Köýtendag",
+                awaza: "Awaza",
+
+                btn_more: "Dowamy →",
+
+                // SERVICES
+                services_title: "Hyzmatlarymyz",
+                services_subtitle: "Syýahatyňyz üçin ähli hyzmatlar",
+
+                service_hotel: "Myhmanhana Bronlaş",
+                service_transport: "Transport Hyzmatlary",
+                service_guide: "Ekskursiýa Gollanmasy",
+                service_visa: "Wiza Goldawy",
+
+                // OFFER
+                offer_title: "Ýörite Teklipimiz",
+                offer_text: "7 günlük tur paketlerine 20% arzanladyş",
+                offer_btn: "Häzir Bronla",
+
+                // TESTIMONIALS
+                testimonials_title: "Müşderilerimiziň Pikirler",
+                testimonials_subtitle: "Müşderilerimiziň tejribesi",
+
+                // GALLERY
+                gallery_title: "Surat Galereýa",
+
+                // CONTACT
+                contact_title: "Biziň Bilen Habarlaşyň",
+                contact_subtitle: "Soraglaryňyz üçin ýüz tutuň",
+
+                contact_name: "Adyňyz",
+                contact_email: "Email",
+                contact_phone: "Telefon",
+                contact_message: "Habar",
+                contact_send: "Iber",
+
+                // FOOTER
+                footer_links: "Çalt Baglanyşyklar",
+                footer_places: "Syýahat Ýerleri",
+                footer_news: "Habarlar Alyň",
+                footer_rights: "Ähli hukuklar goralan"
+            },
+
+            ru: {
+                nav_home: "Главная",
+                nav_about: "О нас",
+                nav_places: "Места",
+                nav_services: "Услуги",
+                nav_contact: "Контакты",
+
+                hero_title: "Добро пожаловать в Туркменистан",
+                hero_subtitle: "Погрузитесь в древнюю историю, природу и гостеприимство",
+                hero_btn_explore: "Смотреть места",
+                hero_btn_contact: "Связаться",
+                hero_clients: "Довольных клиентов",
+                hero_places: "Мест",
+                hero_experience: "Лет опыта",
+                hero_support: "Поддержка",
+
+                about_title: "О Туркменистане",
+                about_subtitle: "История и современность",
+                about_text1: "Туркменистан — страна в Центральной Азии.",
+                about_text2: "Богатая история и культура.",
+                about_history: "Исторические места",
+                about_nature: "Природа",
+
+                feature_hospitality: "Гостеприимство",
+                feature_culture: "Культура",
+                feature_food: "Национальная кухня",
+
+                destinations_title: "Популярные места",
+                destinations_subtitle: "Лучшие места Туркменистана",
+
+                ashgabat: "Ашхабад",
+                darvaza: "Дарваза",
+                kunya: "Куня-Ургенч",
+                merv: "Мерв",
+                koytendag: "Койтендаг",
+                awaza: "Аваза",
+
+                btn_more: "Подробнее →",
+
+                services_title: "Наши услуги",
+                services_subtitle: "Все для вашего путешествия",
+
+                service_hotel: "Бронирование отелей",
+                service_transport: "Транспорт",
+                service_guide: "Гид",
+                service_visa: "Виза",
+
+                offer_title: "Специальное предложение",
+                offer_text: "Скидка 20% на туры",
+                offer_btn: "Забронировать",
+
+                testimonials_title: "Отзывы клиентов",
+                testimonials_subtitle: "Что говорят клиенты",
+
+                gallery_title: "Галерея",
+
+                contact_title: "Свяжитесь с нами",
+                contact_subtitle: "Мы всегда на связи",
+
+                contact_name: "Имя",
+                contact_email: "Email",
+                contact_phone: "Телефон",
+                contact_message: "Сообщение",
+                contact_send: "Отправить",
+
+                footer_links: "Ссылки",
+                footer_places: "Места",
+                footer_news: "Новости",
+                footer_rights: "Все права защищены"
+            },
+
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_places: "Destinations",
+                nav_services: "Services",
+                nav_contact: "Contact",
+
+                hero_title: "Welcome to Turkmenistan",
+                hero_subtitle: "Discover history, nature and hospitality",
+                hero_btn_explore: "Explore",
+                hero_btn_contact: "Contact",
+
+                hero_clients: "Happy Clients",
+                hero_places: "Destinations",
+                hero_experience: "Years Experience",
+                hero_support: "Support",
+
+                about_title: "About Turkmenistan",
+                about_subtitle: "History & Modern Life",
+                about_text1: "Turkmenistan is a country in Central Asia.",
+                about_text2: "Rich history and culture.",
+                about_history: "Historical Sites",
+                about_nature: "Nature",
+
+                feature_hospitality: "Hospitality",
+                feature_culture: "Culture",
+                feature_food: "Cuisine",
+
+                destinations_title: "Popular Destinations",
+                destinations_subtitle: "Best places to visit",
+
+                ashgabat: "Ashgabat",
+                darvaza: "Darvaza",
+                kunya: "Kunya Urgench",
+                merv: "Merv",
+                koytendag: "Koytendag",
+                awaza: "Awaza",
+
+                btn_more: "More →",
+
+                services_title: "Our Services",
+                services_subtitle: "Everything you need",
+
+                service_hotel: "Hotel Booking",
+                service_transport: "Transport",
+                service_guide: "Tour Guide",
+                service_visa: "Visa Support",
+
+                offer_title: "Special Offer",
+                offer_text: "20% discount on tours",
+                offer_btn: "Book Now",
+
+                testimonials_title: "Testimonials",
+                testimonials_subtitle: "What people say",
+
+                gallery_title: "Gallery",
+
+                contact_title: "Contact Us",
+                contact_subtitle: "Get in touch",
+
+                contact_name: "Name",
+                contact_email: "Email",
+                contact_phone: "Phone",
+                contact_message: "Message",
+                contact_send: "Send",
+
+                footer_links: "Quick Links",
+                footer_places: "Destinations",
+                footer_news: "Newsletter",
+                footer_rights: "All rights reserved"
+            }
+        };
+        // === ЯЗЫК ===
+        const langButtons = document.querySelectorAll('.lang-btn');
+
+        // смена языка
+        function changeLanguage(lang) {
+            // сохраняем язык
+            localStorage.setItem('lang', lang);
+
+            // меняем текст
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // обновляем placeholder (важно для input)
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+
+            // обновляем title (tooltip)
+            document.querySelectorAll('[data-i18n-title]').forEach(el => {
+                const key = el.getAttribute('data-i18n-title');
+
+                if (translations[lang] && translations[lang][key]) {
+                    el.title = translations[lang][key];
+                }
+            });
+
+            // активная кнопка
+            langButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll(`.lang-btn[data-lang="${lang}"]`)
+    .forEach(btn => btn.classList.add('active'));
+        }
+
+        // === КНОПКИ ===
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.getAttribute('data-lang');
+                changeLanguage(lang);
+            });
+        });
+
+        // === ЗАГРУЗКА СТРАНИЦЫ ===
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang') || 'tk';
+            changeLanguage(savedLang);
+        });
+
+
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.pointerEvents = 'auto';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Habaryňyz üçin sag boluň! Biz gysga wagtyň içinde size jogap bereris.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
